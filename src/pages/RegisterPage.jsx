@@ -1,7 +1,7 @@
 // src/pages/RegisterPage.jsx
 import React from 'react';
 import RegisterForm from '../components/RegisterForm';
-import { register } from '../services/authService';
+import {register} from '../services/authService';
 
 const RegisterPage = () => {
     const handleRegister = async (formData) => {

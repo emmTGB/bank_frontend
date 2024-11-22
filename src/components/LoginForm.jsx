@@ -1,5 +1,5 @@
 // src/components/LoginForm.jsx
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 const LoginForm = ({ onLogin }) => {
     const [username, setUsername] = useState('');
@@ -7,7 +7,12 @@ const LoginForm = ({ onLogin }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onLogin(username, password);
+        try{
+          onLogin(username, password);
+          setPassword('')
+        }catch (error){
+
+        }
     };
 
     return (

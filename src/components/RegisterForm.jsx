@@ -1,5 +1,5 @@
 // src/components/RegisterForm.jsx
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 const RegisterForm = ({ onRegister }) => {
     const [formData, setFormData] = useState({

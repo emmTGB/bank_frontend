@@ -2,7 +2,7 @@
 `9009`
 - 用户登录
 ```
-post /auth/login
+post /auth/user/login
 {
     String username;
     String password;
@@ -10,7 +10,7 @@ post /auth/login
 ```
 - 用户注册
 ```
-post /auth/register
+post /auth/user/register
 {
     String username;
     String password;
