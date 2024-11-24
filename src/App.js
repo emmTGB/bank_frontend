@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from "./pages/DashboardPage";
 import CreateAccountPage from "./pages/CreateAccountPage";
+import "mdui/mdui.css"
 
 function App() {
   return (

@@ -23,12 +23,13 @@ axiosInstance.interceptors.response.use(
   async (error) =>{
     const originalRequest = error.config
 
-    if(error.response && error.response.status === 401 && !originalRequest._retry){
+    if(error.response && (error.response.status === 401 || error.response.status === 403) && !originalRequest._retry){
       originalRequest._retry = true;
 
       try{
         await refreshToken();
         const accessToken = getAccessToken()
+        console.log('new tk:' + accessToken);
         originalRequest.headers.Authorization = `Bearer ${accessToken}`
         return axiosInstance(originalRequest)
       }catch (error){

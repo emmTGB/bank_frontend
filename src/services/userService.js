@@ -2,7 +2,7 @@ import axiosInstance from "./axiosInstance";
 
 export const getUser = async (id) =>{
   try {
-     return await axiosInstance(`/user/${id}`)
+     return await axiosInstance.get(`/user/${id}`)
   }catch (error){
     console.log(error);
   }
@@ -16,7 +16,7 @@ export const getUser = async (id) =>{
  */
 export const getAccountsByUserPage = async (userId, pageNumber) => {
   try{
-    return await axiosInstance(`/user/${userId}/accounts/${pageNumber}`)
+    return await axiosInstance.get(`/user/${userId}/accounts/${pageNumber}`)
   }catch (error){
     console.log(error);
     throw error.response ? error.response : new Error('Account not found.')

@@ -23,9 +23,9 @@ export const register = async (userData) => {
 
 export const refreshToken = async () => {
     try{
-        const response = await axios.post(`${API_BASE_URL}/user/refresh`, {headers:{
-                'Refresh-Token': getRefreshToken()
-            }});
+        console.log(getRefreshToken())
+        const response = await axios.post(`${API_BASE_URL}/user/refresh`, {},
+          {headers:{'Content-Type': 'application/json', 'Refresh-Token': getRefreshToken()}});
         saveToken(response.headers)
     }catch (error){
         throw error.response ? error.response : new Error('Refresh failed');

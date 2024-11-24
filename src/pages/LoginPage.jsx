@@ -1,6 +1,6 @@
 // src/pages/LoginPage.jsx
 import React from 'react';
-import LoginForm from '../components/LoginForm';
+import LoginCard from '../components/LoginCard';
 import {getUserId, login} from '../services/authService';
 import {useNavigate} from "react-router-dom";
 
@@ -27,7 +27,7 @@ const LoginPage = () => {
     return (
         <div>
             <h2>Login</h2>
-            <LoginForm onLogin={handleLogin} />
+            <LoginCard onLogin={handleLogin} />
         </div>
     );
 };
