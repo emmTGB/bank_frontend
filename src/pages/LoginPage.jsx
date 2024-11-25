@@ -25,7 +25,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div>
+        <div style={{ backgroundColor: 'var(--mdui-color-surface)'}}>
             <h2>Login</h2>
             <LoginCard onLogin={handleLogin} />
         </div>

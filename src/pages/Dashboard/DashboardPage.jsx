@@ -1,8 +1,14 @@
 // src/pages/Dashboard.jsx
 import React, {useEffect, useState} from 'react';
-import AccountCard from '../components/AccountCard';
-import {getAccountsByUserPage} from "../services/userService";
+import AccountCard from '../../components/AccountCard';
+import {getAccountsByUserPage} from "../../services/userService";
 import {useParams} from "react-router-dom"; // 导入 AccountCard 组件
+import "mdui/components/navigation-rail"
+import 'mdui/components/navigation-rail-item.js';
+import "mdui/components/fab.js"
+import '@mdui/icons/edit.js'
+import '@mdui/icons/credit-card.js'
+import {NavigationRail} from "../../components/NavigationRail";
 
 // Dashboard 组件用于显示用户账户信息，并支持按页加载
 const Dashboard = () => {
@@ -53,6 +59,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard" onScroll={handleScroll} style={{ height: '80vh', overflowY: 'auto' }}>
+      <NavigationRail/>
       <h2>User Dashboard</h2>
       {accounts.length > 0 ? (
         accounts.map((account, index) => (

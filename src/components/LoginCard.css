@@ -1,13 +1,62 @@
-form{
+
+
+mdui-card{
+    border-radius: var(--mdui-shape-corner-extra-large);
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    margin: auto;
-    padding: 24px;
-    width: 40vw;
-    height: 50vh;
+    width: 75%;
+    height: 60vh;
+    padding: 36px;
+    margin: 0 auto;
+    box-shadow: var(--mdui-elevation-level5);
 }
 
+.login-wrap{
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+}
+
+.login-guide{
+}
+
+.login-text{
+    line-height: var(--mdui-typescale-display-medium-size);
+    font-size: var(--mdui-typescale-display-medium-size);
+    letter-spacing: var(--mdui-typescale-display-medium-tracking);
+    font-weight: var(--mdui-typescale-display-medium-weight);
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.login-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.horizontal{
+    padding: var(--mdui-shape-corner-extra-large) 0;
+}
+
+
 mdui-text-field{
+    justify-content: right;
     height: 60px;
+    width: 80%;
+}
+
+.g-logo{
+}
+
+mdui-button{
+    height: var(--mdui-typescale-display-small-line-height);
+    margin-left: 20px;
 }
