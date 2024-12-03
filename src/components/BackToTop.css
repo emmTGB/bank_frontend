@@ -1,0 +1,37 @@
+.back-to-top {
+    z-index: 40;
+    position: fixed;
+    bottom: 12px;
+    right: 16px;
+    width: min-content;
+    height: min-content;
+    transform: translateY(200%);
+    transition: transform .2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    mdui-fab{
+        box-shadow: var(--mdui-elevation-level5);
+        overflow: hidden;
+    }
+}
+#btt-fab:hover #fab-icon{
+    animation: bounceUpDown .6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; /* 启用动画 */
+}
+
+.back-to-top.open{
+    transform: translateY(0%);
+    transition: transform .5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/* 动画关键帧 */
+@keyframes bounceUpDown {
+    0% {
+        transform: translateY(0); /* 起点：静止 */
+    }
+    50% {
+        transform: translateY(-150%); /* 中点：向上移出按钮 */
+    }
+    50.01% {
+        transform: translateY(150%); /* 中点：向上移出按钮 */
+    }
+    100% {
+        transform: translateY(0); /* 终点：从下方回来 */
+    }
+}

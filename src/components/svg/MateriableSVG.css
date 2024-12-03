@@ -1,0 +1,47 @@
+svg{
+    .inverse-primary{
+        fill: rgb(var(--mdui-color-inverse-primary));
+    }
+    .primary{
+        fill: rgb(var(--mdui-color-primary));
+    }
+    .primary-container{
+        fill: rgb(var(--mdui-color-primary-container));
+    }
+    .secondary{
+        fill: rgb(var(--mdui-color-secondary));
+    }
+    .on-secondary-container{
+        fill: rgb(var(--mdui-color-on-secondary-container));
+    }
+    .tertiary{
+        fill: rgb(var(--mdui-color-tertiary));
+    }
+    .on-tertiary{
+        fill: rgb(var(--mdui-color-on-tertiary));
+    }
+    .on-tertiary-container{
+        fill: rgb(var(--mdui-color-on-tertiary-container));
+    }
+    .surface-tint{
+        fill: rgb(var(--mdui-color-surface-tint-color));
+    }
+    .inverse-surface{
+        fill: rgb(var(--mdui-color-inverse-surface));
+    }
+    .surface-variant{
+        fill: rgb(var(--mdui-color-surface-variant));
+    }
+    .on-surface-variant{
+        fill: rgb(var(--mdui-color-on-surface-variant));
+    }
+    .outline{
+        fill: rgb(var(--mdui-color-outline));
+    }
+    .error{
+        fill: rgb(var(--mdui-color-error));
+    }
+    .error-container{
+        fill: rgb(var(--mdui-color-error-container));
+    }
+}

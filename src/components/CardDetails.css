@@ -1,0 +1,83 @@
+.detail-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 90%;
+    opacity: 0;
+    animation: fadeInUp .6s ease-in-out forwards;
+
+    mdui-icon{
+        font-size: var(--mdui-typescale-display-large-line-height);
+    }
+
+    mdui-button{
+        width: 100%;
+    }
+
+    .card-flow{
+        width: 100%;
+        mdui-card{
+            height: min-content;
+            padding: var(--mdui-shape-corner-large);
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeInUp 0.4s ease-in-out forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            .balance{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                color: rgb(var(--mdui-color-secondary));
+                font-size: var(--mdui-typescale-headline-medium-size);
+            }
+        }
+
+        mdui-card:nth-child(1){
+            animation-delay: 0.1s;
+        }
+        mdui-card:nth-child(2){
+            animation-delay: 0.2s;
+        }
+        mdui-card:nth-child(3){
+            animation-delay: 0.3s;
+        }
+        mdui-card:nth-child(4){
+            animation-delay: 0.4s;
+        }
+        mdui-card:nth-child(5){
+            animation-delay: 0.5s;
+        }
+        mdui-card:nth-child(6){
+            animation-delay: 0.6s;
+        }
+    }
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+        /* 从下方进入 */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* 到达正常位置 */
+    }
+}

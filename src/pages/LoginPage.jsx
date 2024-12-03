@@ -15,9 +15,9 @@ const LoginPage = () => {
             navigate(`/dashboard/${id}`);
             // 在此可以设置登录后的逻辑，例如存储 token 或重定向
         } catch (error) {
-            if(error.status === 401) {
+            if (error.status === 401) {
                 console.error('Login failed:', error.message)
-            }else{
+            } else {
                 console.error('Internal Error:', error.message)
             }
             throw error;
@@ -25,9 +25,11 @@ const LoginPage = () => {
     };
 
     return (
-        <div style={{ backgroundColor: 'var(--mdui-color-surface)'}}>
-            <h2>Login</h2>
-            <LoginCard onLogin={handleLogin} />
+        <div style={{
+            backgroundColor: 'rgb(var(--mdui-color-surface-container))', height: '100vh',
+            display: 'flex', justifyContent: 'space-around', justifyItems: 'center',
+        }}>
+            <LoginCard onLogin={handleLogin} style={{height:'1000px'}} />
         </div>
     );
 };

@@ -22,3 +22,12 @@ export const getAccountsByUserPage = async (userId, pageNumber) => {
     throw error.response ? error.response : new Error('Account not found.')
   }
 }
+
+export const getAccountsList = async (userId) =>{
+  try{
+    return await axiosInstance.get(`/user/${userId}/accounts/list`);
+  }catch (error){
+    console.log(error);
+    throw error.response ? error.response : new Error('Account not found.')
+  }
+}

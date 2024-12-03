@@ -1,0 +1,109 @@
+.trans-card-wrap{
+    width: 80%;
+    height: auto;
+    mdui-card{
+        background-color: rgb(var(--mdui-color-inverse-on-surface));
+        box-shadow: var(--mdui-elevation-level3);
+        border-radius: var(--mdui-shape-corner-extra-large);
+        padding: var(--mdui-shape-corner-extra-large);
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        gap: var(--mdui-shape-corner-extra-large);
+        .left-content{
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--mdui-shape-corner-medium);
+            user-select: none;
+            .title{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                mdui-icon{
+                    font-size: 10rem;
+                }
+            }
+            .display-wrap{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: var(--mdui-shape-corner-extra-large);
+                gap: var(--mdui-shape-corner-medium);
+                .account-details{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: var(--mdui-shape-corner-small);
+                    animation: fadeInUp 0.4s ease-in-out forwards;
+                    .row-1{
+                        box-sizing: border-box;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: var(--mdui-shape-corner-small);
+                        mdui-icon{
+                            font-size: var(--mdui-typescale-headline-large-line-height);
+                        }
+                        span{
+                            font-size: var(--mdui-typescale-headline-large-size);
+                            line-height: var(--mdui-typescale-headline-large-line-height);
+                        };
+
+                    }
+                    .row-2{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: baseline;
+                        gap: var(--mdui-shape-corner-small);
+                        .balance{
+                            font-weight: var(--mdui-typescale-headline-small-weight);
+                            font-size: var(--mdui-typescale-headline-small-size);
+                            color:rgb(var(--mdui-color-tertiary))
+                        }
+                        span{
+                            font-size: var(--mdui-typescale-body-large-size);
+                        }
+                    }
+                }
+            }
+        }
+        .trans-form{
+            flex:1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: var(--mdui-shape-corner-extra-large);
+            padding: var(--mdui-shape-corner-extra-large);
+            .txt-f{
+                width: 100%;
+            }
+
+        }
+        .back-button{
+            position: absolute;
+            left: var(--mdui-shape-corner-extra-large);
+            bottom: var(--mdui-shape-corner-extra-large);
+            margin: var(--mdui-shape-corner-extra-large);
+        }
+    }
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+        /* 从下方进入 */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        /* 到达正常位置 */
+    }
+}

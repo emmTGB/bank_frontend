@@ -1,11 +1,12 @@
 // src/services/authService.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:9009/auth';
+
+const API_BASE_URL = 'http://10.85.21.73:9009/auth';
 
 export const login = async (username, password) => {
     try {
-        const response =  await axios.post(`${API_BASE_URL}/user/login`, {username, password});
+        const response = await axios.post(`${API_BASE_URL}/user/login`, { username, password });
         saveToken(response.headers)
         return response
     } catch (error) {
@@ -21,13 +22,25 @@ export const register = async (userData) => {
     }
 };
 
+export const checkLogin = async () => {
+    try {
+        const token = getAccessToken()
+        if (token === null) {
+            return false
+        }
+        await axios.options(`${API_BASE_URL}`, { headers: { 'Authorization': `Bearer ${token}` } });
+        return true
+    } catch (error) {
+        return false
+    }
+}
+
 export const refreshToken = async () => {
-    try{
-        console.log(getRefreshToken())
+    try {
         const response = await axios.post(`${API_BASE_URL}/user/refresh`, {},
-          {headers:{'Content-Type': 'application/json', 'Refresh-Token': getRefreshToken()}});
+            { headers: { 'Content-Type': 'application/json', 'Refresh-Token': getRefreshToken() } });
         saveToken(response.headers)
-    }catch (error){
+    } catch (error) {
         throw error.response ? error.response : new Error('Refresh failed');
     }
 }
@@ -36,14 +49,13 @@ export const saveToken = (headers) => {
     const authorization = headers['access-token'];
     const refreshToken = headers['refresh-token'];
     const id = headers['id'];
-    console.log("1111:",headers);
-    if(authorization){
+    if (authorization) {
         sessionStorage.setItem('authorization', authorization);
     }
-    if(refreshToken){
+    if (refreshToken) {
         localStorage.setItem('refreshToken', refreshToken);
     }
-    if(id){
+    if (id) {
         localStorage.setItem('id', id);
     }
 }
