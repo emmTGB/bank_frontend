@@ -1,8 +1,8 @@
 // src/pages/Dashboard.jsx
-import React, { useEffect, useState } from 'react';
-import AccountCard from '../../components/AccountCard';
-import { getAccountsByUserPage } from "../../services/userService";
-import { useParams } from "react-router-dom"; // 导入 AccountCard 组件
+import React, {useEffect, useState} from 'react';
+import AccountCard from '../../components/account/AccountCard';
+import {getAccountsByUserPage} from "../../services/userService";
+import {useParams} from "react-router-dom"; // 导入 AccountCard 组件
 import "mdui/components/navigation-rail"
 import 'mdui/components/navigation-rail-item.js';
 import "mdui/components/fab.js"
@@ -10,8 +10,8 @@ import 'mdui/components/circular-progress.js'
 import '@mdui/icons/edit.js'
 import '@mdui/icons/credit-card.js'
 
-import { BackToTop } from "../../components/BackToTop";
-import { CardDetailPanel } from "../../components/CardDetailPanel";
+import {BackToTop} from "../../components/BackToTop";
+import {CardDetailPanel} from "../../components/account/CardDetailPanel";
 
 // Dashboard 组件用于显示用户账户信息，并支持按页加载
 const CardDisplayPage = () => {
@@ -100,36 +100,40 @@ const CardDisplayPage = () => {
   return (
     <div className="card-display"
       style={{
-        overflowY: 'hidden',
-        paddingRight: '35vw'
+        paddingRight: '35vw',
+        width: '100%',
+        boxSizing: 'border-box',
       }}>
       <div className="card-list"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '100%'
-        }}>
-        <h2>User Dashboard</h2>
+           style={{
+             position: "relative",
+             display: 'flex',
+             flexDirection: 'column',
+             alignItems: 'center',
+             width: '100%',
+             paddingTop: 'var(--mdui-shape-corner-large)'
+           }}>
         {accounts.length > 0 && (
           accounts.map((account, index) => (
-            <AccountCard key={index} delay={index % 5} account={account} onCardClick={handleCardClick} />
+            <AccountCard key={index} delay={index % 5} account={account} onCardClick={handleCardClick}/>
           ))
         )}
         {hasMore ?
           <>
-            <p>Loading...</p>
-            <mdui-circular-progress />
-            <br />
+            <span>Loading...</span>
+            <br/>
+            <mdui-circular-progress/>
+            <br/>
           </>
           :
           <div>
             No more accounts...
           </div>
         }
+
       </div>
-      <CardDetailPanel closure={handleDetailClose} extend={selected} accountId={selectedAccountId} />
-      <BackToTop />
+      <CardDetailPanel closure={handleDetailClose} extend={selected} accountId={selectedAccountId}/>
+      <BackToTop/>
     </div>
   );
 };

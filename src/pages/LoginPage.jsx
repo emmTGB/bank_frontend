@@ -1,6 +1,6 @@
 // src/pages/LoginPage.jsx
 import React from 'react';
-import LoginCard from '../components/LoginCard';
+import LoginCard from '../components/user/LoginCard';
 import {getUserId, login} from '../services/authService';
 import {useNavigate} from "react-router-dom";
 
@@ -27,6 +27,7 @@ const LoginPage = () => {
     return (
         <div style={{
             backgroundColor: 'rgb(var(--mdui-color-surface-container))', height: '100vh',
+            overflow: 'auto',
             display: 'flex', justifyContent: 'space-around', justifyItems: 'center',
         }}>
             <LoginCard onLogin={handleLogin} style={{height:'1000px'}} />

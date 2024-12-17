@@ -1,0 +1,51 @@
+.create-account-wrap {
+    width: 80%;
+    min-height: min-content;
+
+    mdui-card {
+        background-color: rgb(var(--mdui-color-inverse-on-surface));
+        box-shadow: var(--mdui-elevation-level3);
+        border-radius: var(--mdui-shape-corner-extra-large);
+        padding: var(--mdui-shape-corner-extra-large);
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+
+        .top-content {
+            margin: var(--mdui-shape-corner-medium);
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            user-select: none;
+        }
+
+        .sub-content {
+            margin: var(--mdui-shape-corner-medium);
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 100%;
+
+            .title {
+                user-select: none;
+                font-size: var(--mdui-typescale-headline-large-size);
+                line-height: var(--mdui-typescale-headline-large-line-height);
+                font-weight: var(--mdui-typescale-headline-large-weight);
+                word-spacing: var(--mdui-typescale-headline-large-tracking);
+            }
+
+            .create-account-form {
+                width: 45%;
+            }
+        }
+
+        .back-button {
+            position: absolute;
+            left: var(--mdui-shape-corner-extra-large);
+            bottom: var(--mdui-shape-corner-extra-large);
+            margin: var(--mdui-shape-corner-small);
+        }
+    }
+}

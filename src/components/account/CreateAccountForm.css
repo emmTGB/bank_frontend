@@ -1,0 +1,24 @@
+.create-account-form {
+    .create-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: var(--mdui-shape-corner-medium);
+
+
+        mdui-menu-item::part(label) {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        mdui-select::part(text-field__label) {
+            background-color: rgb(var(--mdui-color-inverse-on-surface));
+        }
+
+        mdui-text-field::part(label) {
+            background-color: rgb(var(--mdui-color-inverse-on-surface));
+        }
+    }
+}

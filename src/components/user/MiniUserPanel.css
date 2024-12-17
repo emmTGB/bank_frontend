@@ -1,0 +1,79 @@
+.user-panel-wrap{
+    z-index: 3;
+    width: min-content;
+    min-width: 180px;
+    position: fixed;
+    bottom: 16px;
+    left: 20px;
+    transform-origin: 30px calc(100% - 26px); /* 缩放原点为中心 */
+    mdui-card{
+        position: relative;
+        padding: 6px 10px;
+        display: flex;
+        gap: 6px;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: var(--mdui-elevation-level5);
+        background-color: rgb(var(--mdui-color-surface-container-high));
+        mdui-button{
+            width: 100%;
+            .edit{
+                height: 32px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                color: rgb(var(--mdui-color-on-surface));
+                span{
+                    margin-left: 8px;
+                    font-size: 15px;
+                }
+            }
+        }
+        .content-bottom{
+            width: 100%;
+            user-select: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            .full-name{
+                margin-left: 12px;
+                font-size: var(--mdui-typescale-body-large-size);
+                font-weight: var(--mdui-typescale-body-large-weight);
+                word-spacing: var(--mdui-typescale-body-large-tracking);
+                line-height: var(--mdui-typescale-body-large-line-height);
+            }
+        }
+    }
+}
+
+.user-panel-wrap.open{
+    animation: scalePanelUp .8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+.user-panel-wrap.close{
+    animation: scalePanelDown .3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; /* 关闭动画 */
+}
+
+@keyframes scalePanelUp {
+    0% {
+        transform: scale(0); /* 从 0 开始 */
+    }
+    40% {
+        transform: scale(1.1); /* 放大到 1.2 倍，模拟弹性效果 */
+    }
+    60% {
+        transform: scale(0.95); /* 缩小一点，增强弹性 */
+    }
+    100% {
+        transform: scale(1); /* 最终回到正常大小 */
+    }
+}
+@keyframes scalePanelDown {
+    0% {
+        transform: scale(1); /* 从 1 开始 */
+    }
+    100% {
+        transform: scale(0); /* 最终回到 0 */
+    }
+}

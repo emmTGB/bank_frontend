@@ -1,0 +1,22 @@
+
+.register-form-wrap{
+.register-form {
+    padding: var(--mdui-shape-corner-extra-large);
+    gap: var(--mdui-shape-corner-large);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    mdui-text-field{
+        height: 60px;
+        margin-top: var(--mdui-shape-corner-large);
+    }
+    mdui-text-field::part(label) {
+        background-color: rgb(var(--mdui-color-surface-container-low));
+    }
+
+}
+    mdui-button{
+
+        margin: 0 var(--mdui-shape-corner-extra-large);
+    }
+
+}

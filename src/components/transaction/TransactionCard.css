@@ -1,8 +1,11 @@
-.trans-card-wrap{
+.trans-card-wrap {
     width: 80%;
     height: auto;
-    mdui-card{
+    box-sizing: border-box;
+
+    mdui-card {
         background-color: rgb(var(--mdui-color-inverse-on-surface));
+        box-sizing: border-box;
         box-shadow: var(--mdui-elevation-level3);
         border-radius: var(--mdui-shape-corner-extra-large);
         padding: var(--mdui-shape-corner-extra-large);
@@ -11,80 +14,97 @@
         display: flex;
         flex-direction: row;
         gap: var(--mdui-shape-corner-extra-large);
-        .left-content{
+
+        .left-content {
             width: 45%;
             display: flex;
             flex-direction: column;
             gap: var(--mdui-shape-corner-medium);
             user-select: none;
-            .title{
+
+            .title {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                mdui-icon{
+                transform: translateX(calc(-1 * var(--mdui-shape-corner-medium)));
+
+                mdui-icon {
                     font-size: 10rem;
                 }
             }
-            .display-wrap{
+
+            .display-wrap {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                padding-left: var(--mdui-shape-corner-extra-large);
+                padding-left: var(--mdui-shape-corner-medium);
                 gap: var(--mdui-shape-corner-medium);
-                .account-details{
+
+                .account-details {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     gap: var(--mdui-shape-corner-small);
-                    animation: fadeInUp 0.4s ease-in-out forwards;
-                    .row-1{
+                    animation: fadeInRight 0.4s ease-in-out forwards;
+
+                    .row-1 {
                         box-sizing: border-box;
                         display: flex;
                         flex-direction: row;
                         justify-content: flex-start;
                         align-items: center;
                         gap: var(--mdui-shape-corner-small);
-                        mdui-icon{
+
+                        mdui-icon {
                             font-size: var(--mdui-typescale-headline-large-line-height);
                         }
-                        span{
+
+                        span {
                             font-size: var(--mdui-typescale-headline-large-size);
                             line-height: var(--mdui-typescale-headline-large-line-height);
-                        };
+                        }
+
+                        ;
 
                     }
-                    .row-2{
+
+                    .row-2 {
                         display: flex;
                         flex-direction: row;
                         justify-content: flex-start;
                         align-items: baseline;
                         gap: var(--mdui-shape-corner-small);
-                        .balance{
+
+                        .balance {
                             font-weight: var(--mdui-typescale-headline-small-weight);
                             font-size: var(--mdui-typescale-headline-small-size);
-                            color:rgb(var(--mdui-color-tertiary))
+                            color: rgb(var(--mdui-color-tertiary))
                         }
-                        span{
+
+                        span {
                             font-size: var(--mdui-typescale-body-large-size);
                         }
                     }
                 }
             }
         }
-        .trans-form{
-            flex:1;
+
+        .trans-form {
+            flex: 1;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            gap: var(--mdui-shape-corner-extra-large);
-            padding: var(--mdui-shape-corner-extra-large);
-            .txt-f{
+            gap: var(--mdui-shape-corner-medium);
+            padding: var(--mdui-shape-corner-medium);
+
+            .txt-f {
                 width: 100%;
             }
 
         }
-        .back-button{
+
+        .back-button {
             position: absolute;
             left: var(--mdui-shape-corner-extra-large);
             bottom: var(--mdui-shape-corner-extra-large);
@@ -94,7 +114,7 @@
 }
 
 
-@keyframes fadeInUp {
+@keyframes fadeInRight {
     0% {
         opacity: 0;
         transform: translateX(-10px);

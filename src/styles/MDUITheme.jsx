@@ -1,4 +1,5 @@
-const rgb = (rgb)=>{
+
+const rgb = (rgb) => {
   const match = rgb.match(/(\d+),\s*(\d+),\s*(\d+)$/);
   if (match) {
     return "#" +
@@ -9,14 +10,14 @@ const rgb = (rgb)=>{
   return '#668800'; // 默认颜色
 }
 
-const varCSS = (variable)=>{
+const varCSS = (variable) => {
   return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
 }
 
-export const MDUITheme = () => {
+export const MDUITheme = (mode) => {
   return {
     palette: {
-      mode: 'dark',
+      mode: mode,
       primary: {
         main: rgb(varCSS("--mdui-color-primary")),
         contrastText: rgb(varCSS("--mdui-color-on-primary"))

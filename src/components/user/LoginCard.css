@@ -4,6 +4,10 @@
     flex-direction: column;
     width: 70vw;
     height: 60vh;
+    max-width: 1040px;
+    max-height: 520px;
+    min-width: 420px;
+    min-height: 400px;
     padding: 36px;
     margin: auto;
     box-shadow: var(--mdui-elevation-level5);
@@ -14,13 +18,16 @@
     }
 
     .login-wrap {
+        height: 100%;
         display: grid;
         flex-direction: row;
         grid-template-columns: repeat(2, 1fr);
         gap: 0;
     }
 
-    .login-guide {}
+    .login-guide {
+        user-select: none;
+    }
 
     .login-text {
         display: flex;
@@ -32,10 +39,10 @@
     }
 
     .login-form {
-        display: grid;
+        display: flex;
         flex-direction: column;
-        justify-items: end;
-        grid-template-columns: repeat(1, 2fr);
+        justify-content: flex-start;
+        align-items: flex-end;
     }
 
     .login-buttons {
@@ -43,11 +50,11 @@
         flex-direction: row;
         justify-content: right;
         margin-top: auto;
-        margin-bottom: 8px;
     }
 
     .horizontal {
-        padding: var(--mdui-shape-corner-extra-large) 0;
+        padding-top: var(--mdui-shape-corner-extra-large);
+        height: 100%;
     }
 
 
@@ -58,7 +65,6 @@
     }
 
     mdui-text-field::part(label){
-        opacity: 100%;
         background-color: rgb(var(--mdui-color-surface-container-lowest));
     }
 

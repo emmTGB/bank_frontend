@@ -1,11 +1,23 @@
 import axiosInstance from "./axiosInstance";
+import {getUserId} from "./authService";
 
 export const getUser = async (id) =>{
   try {
-     return await axiosInstance.get(`/user/${id}`)
+    const response = await axiosInstance.get(`/user/${id}`)
+    if(!getFullName()){
+      sessionStorage.setItem('fullName', response.data.fullName)
+    }
+    return response
   }catch (error){
     console.log(error);
   }
+}
+
+export const getFullName = ()=> {
+  if(!sessionStorage.getItem('fullName')){
+    getUser(getUserId())
+  }
+  return sessionStorage.getItem('fullName')
 }
 
 /**

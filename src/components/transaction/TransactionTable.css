@@ -1,0 +1,37 @@
+.MuiDataGrid-topContainer {
+    user-select: none;
+}
+
+.MuiTablePagination-displayedRows {
+    user-select: none;
+}
+
+.MuiDataGrid-row.row-TRANSFER {
+    background-color: rgb(var(--mdui-color-secondary-container));
+}
+
+.MuiDataGrid-row.row-DEPOSIT {
+    background-color: rgb(var(--mdui-color-tertiary-container));
+}
+
+.MuiDataGrid-row.row-WITHDRAW {
+    background-color: rgb(var(--mdui-color-surface-variant));
+}
+
+.table-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    height: min-content;
+    box-sizing: border-box;
+    padding: var(--mdui-shape-corner-extra-large);
+    gap: var(--mdui-shape-corner-large);
+    .acc-auto-filter{
+        width: 100%;
+    }
+    .transaction-table{
+        width: 100%;
+    }
+}

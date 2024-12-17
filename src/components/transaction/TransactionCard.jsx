@@ -2,16 +2,16 @@ import "mdui/components/card.js"
 import 'mdui/components/radio-group.js';
 import 'mdui/components/radio.js';
 import 'mdui/components/icon.js';
-import CardAutoComplete from "./CardAutoComplete";
+import CardAutoComplete from "../account/CardAutoComplete";
 import "./TransactionCard.css"
-import { TextField } from "@mui/material";
+import {TextField} from "@mui/material";
 import {useEffect, useRef, useState} from "react";
-import { getAccountDetailsM } from "../services/accountService";
-import { doTransaction } from "../services/transactionService";
-import {TransactionSymbol} from "./svg/TransactionSymbol";
-import {BankIcons} from "./Icons/BankIcons";
-import {AuthDialog} from "./AuthDialog";
-import {NavBackButton} from "./NavBackButton";
+import {getAccountDetailsM} from "../../services/accountService";
+import {doTransaction} from "../../services/transactionService";
+import {TransactionSymbol} from "../svg/TransactionSymbol";
+import {BankIcons} from "../Icons/BankIcons";
+import {AuthDialog} from "../user/AuthDialog";
+import {NavBackButton} from "../NavBackButton";
 
 export const TransactionCard = props => {
   const [isTransfer, setIsTransfer] = useState(true);
@@ -89,21 +89,24 @@ export const TransactionCard = props => {
       description: comment,
       authRequest: authRequest,
     }
+    submitRef.current.loading = true
+    console.log(transaction)
     try {
-      const response = await doTransaction(transactionType, transaction);
-      console.log(response)
+      await doTransaction(transactionType, transaction);
     } catch (error) {
       console.log(error)
       switch (error.status){
         case 401:
-          break;
         case 403:
-          break;
+          throw error;
         case 500:
+          alert("服务器错误")
           break;
         default:
           break;
       }
+    }finally {
+      submitRef.current.loading = false
     }
   }
 

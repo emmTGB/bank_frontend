@@ -2,7 +2,7 @@ import "mdui/components/button.js"
 import "mdui/components/dialog.js"
 import "mdui/components/text-field.js"
 import {useEffect, useRef} from "react";
-import {getUserId} from "../services/authService";
+import {getUserId} from "../../services/authService";
 
 
 export const AuthDialog = ({entranceRef, onSubmit}) => {
@@ -48,7 +48,7 @@ export const AuthDialog = ({entranceRef, onSubmit}) => {
       <mdui-dialog
         close-on-esc
         close-on-overlay-click id={"user-auth-dialog"} ref={dialog}>
-        <mdui-text-field ref={passwordRef} label={"输入密码"} toggle-password type={"password"}></mdui-text-field>
+        <mdui-text-field onFocus={() => {passwordRef.current.setCustomValidity("")}} ref={passwordRef} label={"输入密码"} toggle-password type={"password"}></mdui-text-field>
         <mdui-button slot={"action"} variant={"text"} onClick={()=>{dialog.current.open = false}}>关闭</mdui-button>
         <mdui-button style={{marginLeft:"8px"}} ref={confirmRef} slot={"action"} variant={"tonal"} onClick={handleConfirm}>确认</mdui-button>
       </mdui-dialog>

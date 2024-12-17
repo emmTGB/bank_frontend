@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAccessToken, refreshToken } from "./authService";
+import {getAccessToken, refreshToken} from "./authService";
 
 const axiosInstance = axios.create({
   baseURL: 'http://10.85.21.73:9009/api',

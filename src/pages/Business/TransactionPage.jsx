@@ -1,5 +1,4 @@
-import CardAutoComplete from "../../components/CardAutoComplete";
-import {TransactionCard} from "../../components/TransactionCard";
+import {TransactionCard} from "../../components/transaction/TransactionCard";
 
 
 export const TransactionPage = (props) => {

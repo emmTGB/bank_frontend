@@ -4,18 +4,22 @@ import "mdui/components/fab.js"
 import 'mdui/components/button-icon.js';
 import 'mdui/components/tooltip.js';
 
+import '@mdui/icons/account-circle.js';
 import '@mdui/icons/add.js'
 import '@mdui/icons/credit-card.js'
 import '@mdui/icons/add-card.js'
 import '@mdui/icons/compare-arrows.js';
 import '@mdui/icons/account-balance.js';
+import '@mdui/icons/swap-horizontal-circle--outlined.js';
 
 import './NavigationRail.css'
 import React, {useEffect, useRef} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {Fade, Tooltip} from "@mui/material";
+import {MiniUserPanel} from "./user/MiniUserPanel";
 
 export const NavigationRail = ({value}) => {
+  const [openPanel, setOpenPanel] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [rotate, setRotate] = React.useState(0);
   const {id} = useParams();
@@ -28,8 +32,13 @@ export const NavigationRail = ({value}) => {
     setRotate(isOpen ? 0 : 45); // 旋转 45 度，点击复原为 0 度
   };
 
+  const toggleUPanel = () => {
+    setOpenPanel(!openPanel);
+  }
+
   const handleNavigation = () =>{
-    navigate(`/dashboard/${id}/${rail.current.value}`, { replace: true });
+    const toValue = rail.current.value;
+    navigate(`/dashboard/${id}/${toValue}`, { replace: true });
   }
 
   useEffect(() => {
@@ -42,22 +51,33 @@ export const NavigationRail = ({value}) => {
         value={value}
         contained
         ref={rail}
-        onClick={handleNavigation}
       >
         <mdui-fab id={"add-fab"} onClick={toggleButtons} slot={"top"}>
           <mdui-icon-add className={"fab-icon"} slot="icon"
                          style={{transform: `rotate(${rotate}deg)`, transition: 'transform 0.3s ease'}}/>
         </mdui-fab>
+        <mdui-button-icon slot={"bottom"} onClick={toggleUPanel} style={{zIndex:5}} >
+          <mdui-icon-account-circle style={{fontSize: '32px'}}/>
+        </mdui-button-icon>
 
+        <MiniUserPanel open={openPanel}/>
+        <div onClick={toggleUPanel} className={`mask panel-mask ${openPanel ? 'open' : ''}`}/>
+
+        <br/>
         <mdui-navigation-rail-item
           value={"cards"}
+          href={`/dashboard/${id}/cards`}
         >
           <mdui-icon-credit-card slot="icon"/>
           银行卡
         </mdui-navigation-rail-item>
-        <mdui-navigation-rail-item value={"transactions"}>
-          <mdui-icon-credit-card slot="icon"/>
-          转账记录
+        <br/>
+        <mdui-navigation-rail-item
+          value={"transactions"}
+          href={`/dashboard/${id}/transactions`}
+        >
+          <mdui-icon-swap-horizontal-circle--outlined slot="icon"/>
+          交易记录
         </mdui-navigation-rail-item>
       </mdui-navigation-rail>
       <div className={`add-buttons ${isOpen ? 'open' : ''}`}>
@@ -109,7 +129,7 @@ export const NavigationRail = ({value}) => {
           </Tooltip>
           {/*<mdui-button-icon className={'add-button'} variant="filled"><mdui-icon-account-balance/> </mdui-button-icon>*/}
         </div>
-        <div className={`mask ${isOpen ? 'open' : ''}`} onClick={toggleButtons}></div>
+        <div className={`mask add-mask ${isOpen ? 'open' : ''}`} onClick={toggleButtons}></div>
       </>
       )
       }

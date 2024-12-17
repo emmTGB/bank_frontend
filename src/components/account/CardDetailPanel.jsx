@@ -9,7 +9,7 @@ import '@mdui/icons/arrow-right.js';
 import './CardDetailPanel.css'
 import {CardDetails} from "./CardDetails";
 import {useEffect, useState} from "react";
-import {getAccountDetails} from "../services/accountService";
+import {getAccountDetails} from "../../services/accountService";
 
 export const CardDetailPanel = ({ closure, extend, accountId }) => {
   const [loading, setLoading] = useState(null);

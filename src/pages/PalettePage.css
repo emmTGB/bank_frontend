@@ -1,0 +1,170 @@
+.palette-page-wrap{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content-wrap{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--mdui-shape-corner-extra-large);
+        width: 80%;
+        height: 75%;
+        .left{
+            user-select: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--mdui-shape-corner-large);
+            .title{
+
+                font-size: var(--mdui-typescale-headline-large-size);
+            }
+            .buttons{
+                display: flex;
+                flex-direction: row;
+                gap: var(--mdui-shape-corner-small);
+
+                width: 200px;
+                mdui-button{
+                    flex-grow: 1;
+                }
+            }
+        }
+        .palette-wrap{
+            flex: 3;
+        }
+    }
+}
+
+
+.color-select-wrap{
+    width: min-content;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--mdui-shape-corner-extra-small);
+}
+
+.palette-wrap{
+    user-select: none;
+    mdui-card{
+        box-sizing: border-box;
+        padding: var(--mdui-shape-corner-extra-large);
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-shadow: var(--mdui-elevation-level3);
+
+        .title{
+            font-size: var(--mdui-typescale-headline-large-size);
+            line-height: var(--mdui-typescale-headline-large-line-height);
+            margin: var(--mdui-shape-corner-small);
+        }
+        .display-wrap{
+            width: 100%;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            gap: var(--mdui-shape-corner-large);
+            .left{
+                height: 100%;
+                flex: 3;
+                display: flex;
+                flex-direction: column;
+                gap: var(--mdui-shape-corner-large);
+                .main{
+                    height: 45%;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr); /* 创建4列，每列宽度相等 */
+                    grid-template-rows: repeat(2, 1fr);   /* 创建2行，每行高度相等 */
+                    gap: var(--mdui-shape-corner-extra-small);
+                }
+                .sub{
+                    width: 100%;
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--mdui-shape-corner-extra-small);
+                    .row{
+                        display: flex;
+                        flex-direction: row;
+                        div{
+                            font-size: var(--mdui-typescale-body-medium-size);
+                            flex: 1;
+                            box-sizing: border-box;
+                            padding: var(--mdui-shape-corner-small);
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                        }
+                    }
+                    .row-1{
+                        flex: 5;
+                    }
+                    .row-2{
+                        flex: 5;
+                    }
+                    .row-3{
+                        flex: 3;
+                    }
+                }
+            }
+            .right{
+                height: 100%;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: var(--mdui-shape-corner-large);
+                .main{
+                    height: 45%;
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr); /* 创建4列，每列宽度相等 */
+                    grid-template-rows: repeat(2, 1fr);   /* 创建2行，每行高度相等 */
+                    gap: var(--mdui-shape-corner-extra-small);
+                }
+                .sub{
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--mdui-shape-corner-extra-small);
+                    .block{
+                        flex: 9;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+}
+.item{
+    box-sizing: border-box;
+    padding: var(--mdui-shape-corner-small);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex:3;
+    font-size: var(--mdui-typescale-body-medium-size);
+}
+.on-item{
+    box-sizing: border-box;
+    padding: var(--mdui-shape-corner-small);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;
+    font-size: var(--mdui-typescale-body-medium-size);
+}
