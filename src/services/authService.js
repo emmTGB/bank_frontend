@@ -1,6 +1,5 @@
 // src/services/authService.js
 import axios from 'axios';
-import {getUser} from "./userService"
 
 const API_BASE_URL = 'http://10.85.21.73:9009/auth';
 
@@ -25,13 +24,6 @@ export const register = async (userData) => {
     }
 };
 
-export const update = async (userData) => {
-    try {
-        return await axios.post(`${API_BASE_URL}/user/update/${getUserId()}`, userData);
-    } catch (error) {
-        throw error.response ? error.response : new Error('Registration failed');
-    }
-};
 
 export const checkLogin = async () => {
     try {

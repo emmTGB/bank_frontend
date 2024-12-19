@@ -13,6 +13,15 @@ export const getUser = async (id) =>{
   }
 }
 
+
+export const update = async (userData) => {
+  try {
+    return await axiosInstance.post(`/user/update/${getUserId()}`, userData);
+  } catch (error) {
+    throw error.response ? error.response : new Error('Registration failed');
+  }
+};
+
 export const getFullName = ()=> {
   if(!sessionStorage.getItem('fullName')){
     getUser(getUserId())

@@ -14,6 +14,7 @@ import {dataGridLocale} from "../../utils/dataGridLocale";
 
 export const TransactionTable = ({ defaultAccId }) => {
   const transactions = {}
+  const [pageSize, setPageSize] = useState(5)
   const [rows, setRows] = useState([]);
   const [sAccIds, setSaccIds] = useState([]);
   const columns = [
@@ -74,6 +75,17 @@ export const TransactionTable = ({ defaultAccId }) => {
     }).catch(err=>{
       console.log(err)
     })
+
+    const adjustPageSize = () => {
+      const availableHeight = window.innerHeight - 240
+      const calculatedPageSize = Math.max(1, Math.floor(availableHeight / 52))
+      setPageSize(calculatedPageSize)
+    }
+
+    adjustPageSize();
+
+    window.addEventListener("resize", adjustPageSize);
+    return () => window.removeEventListener('resize', adjustPageSize);
   }, [])
 
   const fetchAllTransactions = async () => {
@@ -151,7 +163,7 @@ export const TransactionTable = ({ defaultAccId }) => {
         className={"transaction-table"}
         rows={rows}
         columns={columns}
-        pageSizeOptions={[10]}
+        autoPageSize
         getRowClassName={(params) =>
           `row-${params.row.transactionType}`
         }

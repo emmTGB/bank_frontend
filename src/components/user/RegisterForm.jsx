@@ -1,11 +1,22 @@
 import "mdui/components/text-field.js"
 import "mdui/components/button.js"
 import "./RegisterForm.css"
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
+import {useNavigate} from "react-router-dom";
 
 const RegisterForm = ({ onRegister }) => {
   const passRef = useRef()
   const cPassRef = useRef()
+
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    if(window.history.length > 1){
+      navigate(-1);
+    }else{
+      navigate('/');
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,7 +72,9 @@ const RegisterForm = ({ onRegister }) => {
           toggle-password
           required
           onFocus={() => {
-            if(passRef.current) {passRef.current.setCustomValidity("")}
+            if (passRef.current) {
+              passRef.current.setCustomValidity("")
+            }
           }}
           label="密码"
         />
@@ -73,14 +86,16 @@ const RegisterForm = ({ onRegister }) => {
           toggle-password
           required
           onFocus={() => {
-            if(cPassRef.current) {cPassRef.current.setCustomValidity("")}
+            if (cPassRef.current) {
+              cPassRef.current.setCustomValidity("")
+            }
           }}
           label="确认密码"
         />
-        <div/>
+        <mdui-button variant={'tonal'} onClick={handleBack} full-width>取消</mdui-button>
+        <mdui-button full-width type="submit">更新</mdui-button>
       </form>
 
-      <mdui-button form={"register-412324"} full-width type="submit">注册</mdui-button>
 
     </div>
   );

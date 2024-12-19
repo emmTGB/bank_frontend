@@ -24,7 +24,7 @@
     align-items: center;
     width: 100%;
     max-width: 1000px;
-    height: min-content;
+    height: 100%;
     box-sizing: border-box;
     padding: var(--mdui-shape-corner-extra-large);
     gap: var(--mdui-shape-corner-large);

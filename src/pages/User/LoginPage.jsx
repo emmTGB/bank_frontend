@@ -1,7 +1,7 @@
 // src/pages/LoginPage.jsx
 import React from 'react';
-import LoginCard from '../components/user/LoginCard';
-import {getUserId, login} from '../services/authService';
+import LoginCard from '../../components/user/LoginCard';
+import {getUserId, login} from '../../services/authService';
 import {useNavigate} from "react-router-dom";
 
 const LoginPage = () => {

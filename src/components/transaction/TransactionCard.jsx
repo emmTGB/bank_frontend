@@ -152,7 +152,9 @@ export const TransactionCard = props => {
               <mdui-radio value="withdraw">取款</mdui-radio>
               <mdui-radio value="deposit">存款</mdui-radio>
             </mdui-radio-group>
-            <CardAutoComplete className={"txt-f trans-card-auto"} getContent={fetchFromId} />
+            <CardAutoComplete className={"txt-f trans-card-auto"}
+                              getContent={fetchFromId}
+            />
             <TextField variant={"outlined"} label={"目标卡号(19位)"} disabled={!isTransfer} onChange={onToChange}
               className={`txt-f target-number ${isTransfer ? "show" : ""}`} />
             <TextField variant={"outlined"} label={"输入金额"} onChange={handleAmountChange}

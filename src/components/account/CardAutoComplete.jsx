@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {getUserId} from "../../services/authService";
 import {getAccountsList} from "../../services/userService";
 import "mdui/components/text-field.js"
+import {BankIcons} from "../Icons/BankIcons";
 
 
 export default function CardAutoComplete({ className, getContent }) {
@@ -41,6 +42,14 @@ export default function CardAutoComplete({ className, getContent }) {
             <TextField {...params} label="选择您的银行卡" variant={"outlined"} />
           // <mdui-text-field {...params} label={"选择您的银行卡"} variant={"outlined"}/>
         }
+        renderOption={(props, option) => {
+          const { key, ...optionProps } = props;
+          return (
+            <li key={key} {...optionProps}>
+              <mdui-icon style={{ marginRight: 8 }}><BankIcons bank={`${option.bankName}`} /></mdui-icon>{ option.number}
+            </li>
+          );
+        }}
         options={options}
         getOptionLabel={(option) => option.number}
         onChange={handleCardSelected}

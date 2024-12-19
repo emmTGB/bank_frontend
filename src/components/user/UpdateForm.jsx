@@ -2,8 +2,9 @@ import "mdui/components/text-field.js"
 import "mdui/components/button.js"
 import "./UpdateForm.css"
 import {getUser} from "../../services/userService"
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {getUserId} from "../../services/authService";
+import {useNavigate} from "react-router-dom";
 
 const UpdateForm = ({ onupdate }) => {
   const passRef = useRef()
@@ -13,6 +14,15 @@ const UpdateForm = ({ onupdate }) => {
   const phoneRef = useRef()
   const nameRef = useRef()
 
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    if(window.history.length > 1){
+      navigate(-1);
+    }else{
+      navigate('/');
+    }
+  }
 
   useEffect(() =>{
     getUser(getUserId()).then((r) => {
@@ -32,8 +42,12 @@ const UpdateForm = ({ onupdate }) => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
-    if(data.password === data.confirmPassword) {
+    if(data.password === data.newPassword) {
       nPassRef.current.setCustomValidity("请输入新的密码")
+    }
+
+    if(data.newPassword.trim().length === 0) {
+      data.newPassword = data.password
     }
 
     onupdate(data);
@@ -81,26 +95,29 @@ const UpdateForm = ({ onupdate }) => {
           toggle-password
           required
           onFocus={() => {
-            if(passRef.current) {passRef.current.setCustomValidity("")}
+            if (passRef.current) {
+              passRef.current.setCustomValidity("")
+            }
           }}
           label="旧密码"
         />
         <mdui-text-field
           ref={nPassRef}
-          name="confirmPassword"
+          name="newPassword"
           variant="outlined"
           type="password"
           toggle-password
-          required
           onFocus={() => {
-            if(nPassRef.current) {nPassRef.current.setCustomValidity("")}
+            if (nPassRef.current) {
+              nPassRef.current.setCustomValidity("")
+            }
           }}
           label="新密码"
         />
-        <div/>
-      </form>
+        <mdui-button variant={'tonal'} onClick={handleBack} full-width>取消</mdui-button>
+        <mdui-button full-width type="submit">更新</mdui-button>
 
-      <mdui-button form={"update-412324"} full-width type="submit">更新</mdui-button>
+      </form>
 
     </div>
   );

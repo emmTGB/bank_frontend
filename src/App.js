@@ -1,10 +1,10 @@
 import './App.css';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/User/LoginPage';
+import RegisterPage from './pages/User/RegisterPage';
 import DashboardPage from "./pages/Dashboard/DashBoardPage";
-import CreateAccountPage from "./pages/CreateAccountPage";
+import CreateAccountPage from "./pages/User/CreateAccountPage";
 
 import "mdui/mdui.css"
 import Home from "./components/Home";
@@ -14,8 +14,8 @@ import {MDUITheme} from "./styles/MDUITheme";
 import {TransactionPage} from "./pages/Business/TransactionPage";
 import {zhCN} from '@mui/material/locale';
 import {PalettePage} from "./pages/PalettePage";
-import {applyTheme, getMuiMode, getThemeMode} from "./styles/PaletteTheme";
-import UpdatePage from "./pages/UpdatePage";
+import {applyTheme, getMuiMode} from "./styles/PaletteTheme";
+import UpdatePage from "./pages/User/UpdatePage";
 
 
 function App() {

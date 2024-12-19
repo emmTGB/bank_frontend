@@ -6,6 +6,7 @@ export const TransactionsListPage = (props) => {
     <div className={"trans-list-page-wrap"}
          style={{
            width:'100%',
+           height:'80%',
            display: 'flex',
            flexDirection: 'column',
            justifyContent: 'center',

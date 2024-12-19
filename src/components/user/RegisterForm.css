@@ -9,14 +9,14 @@
         height: 60px;
         margin-top: var(--mdui-shape-corner-large);
     }
-    mdui-text-field::part(label) {
-        background-color: rgb(var(--mdui-color-surface-container-low));
+    mdui-text-field::part(label){
+        background-color: rgb(var(--mdui-color-surface-container-lowest));
     }
 
 }
     mdui-button{
 
-        margin: 0 var(--mdui-shape-corner-extra-large);
+        margin-top: var(--mdui-shape-corner-extra-large);
     }
 
 }

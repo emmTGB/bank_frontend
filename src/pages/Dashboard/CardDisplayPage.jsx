@@ -21,6 +21,7 @@ const CardDisplayPage = () => {
   const [loading, setLoading] = useState(false); // 加载状态
   const [selectedAccountId, setSelectedAccountId] = useState(null);
   const [selected, setSelected] = useState(false);
+  const [isWide, setIsWide] = useState(false);
 
   const { id } = useParams();
 
@@ -88,19 +89,25 @@ const CardDisplayPage = () => {
       }, 600)
     }
 
+    const handleResize = () => {
+      setIsWide(window.innerWidth > 1680)
+      handleScroll()
+    }
+    handleResize()
+
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }); // 只在组件首次渲染时调用一次 todo 不懂
 
   return (
     <div className="card-display"
       style={{
-        paddingRight: '35vw',
+        paddingRight: isWide ? '560px' : '35vw',
         width: '100%',
         boxSizing: 'border-box',
       }}>
@@ -113,23 +120,41 @@ const CardDisplayPage = () => {
              width: '100%',
              paddingTop: 'var(--mdui-shape-corner-large)'
            }}>
-        {accounts.length > 0 && (
-          accounts.map((account, index) => (
-            <AccountCard key={index} delay={index % 5} account={account} onCardClick={handleCardClick}/>
-          ))
-        )}
-        {hasMore ?
-          <>
-            <span>Loading...</span>
-            <br/>
-            <mdui-circular-progress/>
-            <br/>
-          </>
-          :
-          <div>
-            No more accounts...
-          </div>
-        }
+        <div className="list"
+             style={{
+               width: isWide ? '80%' : '100%',
+               display: 'grid',
+               gridTemplateColumns: isWide ? 'repeat(2, 1fr)' : '1fr',
+               alignItems: 'center',
+               justifyItems: 'center',
+               rowGap: 'var(--mdui-shape-corner-large)',
+             }}
+        >
+          {accounts.length > 0 && (
+            accounts.map((account, index) => (
+              <AccountCard key={index} delay={index % 10} account={account} onCardClick={handleCardClick}/>
+            ))
+          )}
+        </div>
+        <div className="info"
+             style={{
+               userSelect: 'none',
+               padding: 'var(--mdui-shape-corner-large)',
+             }}
+        >
+          {hasMore ?
+            <>
+              <span>正在加载...</span>
+              <br/>
+              <mdui-circular-progress/>
+              <br/>
+            </>
+            :
+            <div>
+              没有更多帐号了...
+            </div>
+          }
+        </div>
 
       </div>
       <CardDetailPanel closure={handleDetailClose} extend={selected} accountId={selectedAccountId}/>

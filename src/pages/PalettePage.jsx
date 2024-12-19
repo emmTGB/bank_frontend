@@ -1,9 +1,8 @@
-import { NavBackButton } from "../components/NavBackButton";
 import "mdui/components/radio-group"
 import "mdui/components/radio"
 import "mdui/components/card"
 import "mdui/components/divider"
-import {useRef, useState} from "react";
+import {useState} from "react";
 import {getPaletteColor, getThemeMode, setPalette} from "../styles/PaletteTheme";
 
 

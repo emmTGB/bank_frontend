@@ -1,5 +1,5 @@
 import React from 'react';
-import {CreateAccountCard} from "../components/account/CreateAccountCard";
+import {CreateAccountCard} from "../../components/account/CreateAccountCard";
 
 
 const CreateAccountPage = () => {
