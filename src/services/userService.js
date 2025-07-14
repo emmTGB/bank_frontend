@@ -1,13 +1,24 @@
 import axiosInstance from "./axiosInstance";
-import {getUserId} from "./authService";
+import {getRefreshToken, getUserId} from "./authService";
+import axios from "axios";
+
+export const logout = async () => {
+  try{
+    return await axios.post("/user/logout", {
+      headers: {
+        "Refresh-Token": getRefreshToken()
+      }
+    });
+  }catch(error){
+    console.log(error)
+    throw error.response ? error.response : new Error('Refresh failed');
+  }
+}
 
 export const getUser = async (id) =>{
   try {
-    const response = await axiosInstance.get(`/user/${id}`)
-    if(!getFullName()){
-      sessionStorage.setItem('fullName', response.data.fullName)
-    }
-    return response
+    return await axiosInstance.get(`/user/${id}`)
+
   }catch (error){
     console.log(error);
   }
@@ -22,9 +33,9 @@ export const update = async (userData) => {
   }
 };
 
-export const getFullName = ()=> {
+export const getFullName = async ()=> {
   if(!sessionStorage.getItem('fullName')){
-    getUser(getUserId())
+    sessionStorage.setItem('fullName', (await getUser(getUserId())).data.fullName);
   }
   return sessionStorage.getItem('fullName')
 }

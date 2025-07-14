@@ -93,7 +93,7 @@ const RegisterForm = ({ onRegister }) => {
           label="确认密码"
         />
         <mdui-button variant={'tonal'} onClick={handleBack} full-width>取消</mdui-button>
-        <mdui-button full-width type="submit">更新</mdui-button>
+        <mdui-button full-width type="submit">注册</mdui-button>
       </form>
 
 

@@ -34,7 +34,7 @@ export const GreetingFullName = (props) => {
         console.log(err)
       })
     }else{
-      setFullName(getFullName())
+      getFullName().then(n => setFullName(n))
     }
     setGreeting(getGreeting);
   }, []);

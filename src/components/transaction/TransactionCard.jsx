@@ -98,7 +98,8 @@ export const TransactionCard = props => {
       switch (error.status){
         case 401:
         case 403:
-          throw error;
+          alert('身份验证过期')
+          break
         case 500:
           alert("服务器错误")
           break;

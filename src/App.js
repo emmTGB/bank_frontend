@@ -16,6 +16,7 @@ import {zhCN} from '@mui/material/locale';
 import {PalettePage} from "./pages/PalettePage";
 import {applyTheme, getMuiMode} from "./styles/PaletteTheme";
 import UpdatePage from "./pages/User/UpdatePage";
+import AdminControlPage from "./pages/AdminControlPage";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             </Route>
             <Route path={"/palette"} element={<PalettePage/>} />
             <Route path={"/update"} element={<UpdatePage/>} />
+            <Route path={"/AdminPage"} element={<AdminControlPage/>} />
             <Route path={"/NotFound"} element={<NotFoundPage />} />
             <Route path={"*"} element={<Navigate to={"NotFound"} />} />
           </Routes>

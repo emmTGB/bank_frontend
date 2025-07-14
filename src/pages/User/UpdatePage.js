@@ -4,6 +4,7 @@ import UpdateForm from '../../components/user/UpdateForm';
 import {getUserId} from '../../services/authService';
 import {useNavigate} from "react-router-dom";
 import {update} from "../../services/userService";
+import {getUser} from "../../services/userService";
 
 const UpdatePage = () => {
   const [message, setMessage] = useState('');
@@ -16,6 +17,7 @@ const UpdatePage = () => {
       console.log('Update successful:', u);
       // 在此可以设置注册成功后的逻辑
       const id = getUserId()
+      sessionStorage.removeItem('fullName')
       navigate(`/dashboard/${id}`)
     }).catch((error) => {
       console.error('Update failed:', error.message)

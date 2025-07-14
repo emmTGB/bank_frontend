@@ -75,3 +75,10 @@ export const getAccessToken = () => {
 export const getUserId = () => {
     return localStorage.getItem('id');
 }
+
+export const clearUser = () => {
+    localStorage.removeItem('refreshToken');
+    sessionStorage.removeItem('authorization');
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('fullName');
+}

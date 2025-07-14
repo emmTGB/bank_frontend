@@ -76,12 +76,12 @@ export const CardDetails = ({details})=> {
         <mdui-card clickable href={`/dashboard/${useParams().id}/transactions/${details.id}`} variant={"filled"} style={{backgroundColor: "rgb(var(--mdui-color-secondary-container))"}}>
           <span>明细查询</span>
         </mdui-card>
-        <mdui-card clickable variant={"elevated"} style={{ color: "rgb(var(--mdui-color-on-tertiary-container))", backgroundColor: "rgb(var(--mdui-color-tertiary-container))"}}>
-          <span>账户挂失</span>
-        </mdui-card>
-        <mdui-card clickable variant={"outlined"} style={{ color: "rgb(var(--mdui-color-on-error-container))", backgroundColor: "rgb(var(--mdui-color-error-container))"}}>
-          <span>删除账户</span>
-        </mdui-card>
+        {/*<mdui-card clickable variant={"elevated"} style={{ color: "rgb(var(--mdui-color-on-tertiary-container))", backgroundColor: "rgb(var(--mdui-color-tertiary-container))"}}>*/}
+        {/*  <span>账户挂失</span>*/}
+        {/*</mdui-card>*/}
+        {/*<mdui-card clickable variant={"outlined"} style={{ color: "rgb(var(--mdui-color-on-error-container))", backgroundColor: "rgb(var(--mdui-color-error-container))"}}>*/}
+        {/*  <span>删除账户</span>*/}
+        {/*</mdui-card>*/}
       </Masonry>
     </div>
   )

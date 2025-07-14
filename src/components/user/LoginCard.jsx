@@ -33,7 +33,9 @@ const LoginCard = ({ onLogin }) => {
       }
       console.error('Login failed:', error.message);
     }finally {
-      btnRef.current.loading = false;
+      if(btnRef.current){
+        btnRef.current.loading = false;
+      }
     }
   };
 
